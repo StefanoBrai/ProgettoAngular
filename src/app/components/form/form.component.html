@@ -1,0 +1,49 @@
+<!-- Form template driven # -->
+<!-- <form #homeForm="ngForm" (ngSubmit)="onSubmit(homeForm)">
+    <mat-form-field>
+        <mat-label>Nome</mat-label>
+        <input matInput type="text" name="nome" ngModel required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput type="email" name="email" ngModel required email>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Colori</mat-label>
+        <mat-select name="colore" ngModel>
+            <mat-option value="rosso">Rosso</mat-option>
+            <mat-option value="blu">Blu</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <button mat-flat-button color="primary" type="submit" [disabled]="!homeForm.valid">Invia</button>
+</form> -->
+
+
+<!-- Form Reactive -->
+<h1 class="text">Form</h1>
+<form [formGroup]="formPersona" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+        <mat-label>Nome</mat-label>
+        <input matInput type="text" name="nome" formControlName="nome">
+    </mat-form-field>
+
+    <p *ngIf="!formPersona.get('nome')!.valid && formPersona.get('nome')!.touched">inserisci un nome</p>
+
+    <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput type="email" name="email" formControlName="email">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Colori</mat-label>
+        <mat-select name="colore" formControlName="colore">
+            <mat-option value="rosso">Rosso</mat-option>
+            <mat-option value="blu">Blu</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <button mat-flat-button color="primary" type="submit" [disabled]="!formPersona.valid">Invia</button>
+</form>

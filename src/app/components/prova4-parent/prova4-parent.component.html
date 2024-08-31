@@ -1,0 +1,10 @@
+<div>
+    <!-- parent -> child = [data]="personeNelParent" / child -> parent = (mandaDatiEvent)="onRiceviDati($event)" -->
+    <app-prova4-child [data]="personeNelParent" (mandaDatiEvent)="onRiceviDati($event)"></app-prova4-child>
+    <br>
+    <div *ngIf="nomeRicevutoDaChild">
+        <h1>Dati passati dal Child al click del button:</h1> 
+        <p> {{ nomeRicevutoDaChild }} </p>
+    </div>
+</div>
+

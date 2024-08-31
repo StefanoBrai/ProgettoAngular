@@ -1,0 +1,10 @@
+<div>
+    <h1>Dati passati dal parent</h1>
+    <ul *ngFor="let d of data">
+        <!-- cambio dinamico dello stile = [ngStyle]="{ color: d.color }" -->
+        <li [ngStyle]="{ color: d.color }"> {{ d.nome }} </li>
+    </ul>
+</div>
+<div>
+    <button (click)="mandaDati()">Manda dati al parent</button>
+</div>

@@ -1,0 +1,8 @@
+<h1>Utilizzo del service</h1>
+<div *ngFor="let p of persone">
+    <p class="cerchioVerde" *ngIf="p.isOnline"></p>
+    <p class="cerchioRosso" *ngIf="!p.isOnline"></p>
+    <p > {{ p.nome }} {{ p.cognome }} </p>
+</div>
+
+<button (click)="onClick()">Clicca per cambiare i dati sopra</button>

@@ -1,0 +1,70 @@
+<h1>Contatti</h1>
+<div class="position">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> Id. </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+        <!-- Nome Column -->
+        <ng-container matColumnDef="nome">
+            <th mat-header-cell *matHeaderCellDef> Nome </th>
+            <td mat-cell *matCellDef="let element">
+                <div *ngIf="!element.isEditing; else editNome">
+                    {{ element.nome }}
+                </div>
+                <ng-template #editNome>
+                    <input matInput [(ngModel)]="element.nome" />
+                </ng-template>
+            </td>
+        </ng-container>
+
+        <!-- Email Column -->
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef> Email </th>
+            <td mat-cell *matCellDef="let element">
+                <div *ngIf="!element.isEditing; else editEmail">
+                    {{ element.email }}
+                </div>
+                <ng-template #editEmail>
+                    <input matInput [(ngModel)]="element.email" />
+                </ng-template>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef class="actions-header"> Actions </th>
+            <td mat-cell *matCellDef="let element" class="actions-cell">
+                <div class="actions-container">
+                    <!-- Edit Persona -->
+                    <button *ngIf="!element.isEditing && !isEditingAnyRow" mat-mini-fab aria-label="Delete"
+                        (click)="startEditing(element)" color="primary">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button *ngIf="element.isEditing" mat-button (click)="saveChanges(element)">Save</button>
+                    <button *ngIf="element.isEditing" mat-button (click)="cancelEditing(element)">Cancel</button>
+                    <!-- Delete Persona -->
+                    <button *ngIf="element.isEditing" mat-mini-fab aria-label="Delete"
+                        (click)="deletePersona(element.id)" color="warn" style="margin-left: 15px;">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <!-- redirect alla form -->
+    <div class="btn-add">
+        <button routerLink="/" mat-mini-fab aria-label="Add" color="warn" style="margin-left: 15px;">
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
+</div>

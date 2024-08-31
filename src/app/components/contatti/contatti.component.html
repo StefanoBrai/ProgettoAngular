@@ -1,0 +1,24 @@
+<!-- <div *ngIf="!isProfile">
+    <h1 style="text-transform: uppercase; margin-top: 25px;">Contatti</h1>
+
+    <div *ngFor="let p of persone; index as i">
+        <a routerLink="/contatti/{{i}}"><p> {{ p.nome }} {{ p.cognome }} </p></a>
+    </div>
+</div> -->
+<!-- <ng-template #profiloContatto>
+    <app-contatto [persona]="persona" ></app-contatto>
+</ng-template> -->
+
+
+<h1 class="text">Contatti</h1>
+<div class="div-esterno">
+    <div style="margin-right: 50px; position: relative; align-items: center;">
+        <div *ngFor="let p of persone; index as i">
+            <!-- <a routerLink="/contatti/{{i}}"> -->
+            <a [routerLink]="['/contatti', p.id]">
+                <p> {{ p.nome }} </p>
+            </a>
+        </div>
+    </div>
+    <router-outlet></router-outlet>
+</div>

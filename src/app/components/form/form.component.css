@@ -1,0 +1,14 @@
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.text {
+    text-transform: uppercase;
+    text-align: center;
+    padding-top: 25px;
+}

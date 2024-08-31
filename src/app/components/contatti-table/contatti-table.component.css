@@ -1,0 +1,40 @@
+h1 {
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.position {
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    max-width: 75%;
+    padding: 20px 20px 10px 20px;
+    margin:0 auto;
+    overflow: auto;
+}
+
+
+/* Button centrati nella tabella */
+.actions-cell {
+    justify-content: center;
+    align-items: center;
+}
+
+.actions-container {
+    display: flex;
+    justify-content: space-around;
+    /* Distribuisce uniformemente i pulsanti */
+    width: 100%;
+}
+
+.actions-header {
+    text-align: center;
+}
+
+.btn-add {
+    margin-top: 25px;
+    display: flex;
+    position: fixed;
+    justify-content: right;
+}

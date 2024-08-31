@@ -1,0 +1,66 @@
+<button mat-raised-button [disabled]="isDisabled">Basic</button>
+
+<hr>
+
+<!-- two way binding -->
+<button mat-raised-button color="primary" (click)="onClick($event)">Basic</button>
+
+<mat-form-field class="example-full-width">
+    <mat-label>Favorite food</mat-label>
+    <input matInput placeholder="Ex. Pizza" [(ngModel)]="title">
+</mat-form-field>
+
+<p> {{ title }} </p>
+
+<hr>
+
+<!-- *ngIf -->
+<p *ngIf="isVisible">ciao, io ci sono</p>
+<p *ngIf="!isVisible">ciao io non ci sono</p>
+
+<ng-template *ngIf="isVisible; then bloccoIf else bloccoElse"></ng-template>
+<ng-template #bloccoIf>
+    <p>Sono p e SONO visibile</p>
+</ng-template>
+<ng-template #bloccoElse>
+    <p>Sono p e NON sono visibile</p>
+</ng-template>
+
+<hr>
+
+<!-- *ngFor -->
+<ul>
+    <li *ngFor="let persona of persone"> {{ persona.nome }} - {{ persona.cognome }} </li>
+</ul>
+
+<hr>
+
+<div *ngFor="let p of persone">
+    <p class="cerchioVerde" *ngIf="p.isOnline"></p>
+    <p class="cerchioRosso" *ngIf="!p.isOnline"></p>
+    <p> {{ p.nome }} {{ p.cognome }} </p>
+</div>
+
+<hr>
+
+<div *ngFor="let p of persone, index as i, first as isFirst, last as isLast, even as isEven, odd as isOdd">
+    <p *ngIf="i > 2" class="cerchioVerde"></p>
+    <p> First: {{ isFirst }} - {{ p.nome }} {{ p.cognome }} </p>
+</div>
+
+<hr>
+
+<div [ngSwitch]="stringa">
+  <p *ngSwitchCase="'pippo'">1</p>
+  <p *ngSwitchCase="'pluto'">2</p>
+  <p *ngSwitchCase="'paperino'">3</p>
+  <p *ngSwitchCase="'topolino'">4</p>
+  <p *ngSwitchDefault>Default</p>
+</div>
+
+<hr>
+
+<!-- Parent -> Child -->
+<div *ngFor="let d of data">
+  <p [ngStyle]="{ color: d.color }"> {{ d.nome }} {{ d.cognome }} </p>
+</div>
